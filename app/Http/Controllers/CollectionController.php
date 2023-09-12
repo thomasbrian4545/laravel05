@@ -92,6 +92,21 @@ class CollectionController extends Controller
         // Method contains()
         $baru = $operasi->concat([34, 8]);
         dump($baru->contains(34));
+
+        // Method unique()
+        echo $operasi->unique();
+        echo "<br>";
+
+        // Method all()
+        echo $operasi;
+        echo "<br>";
+        dump($operasi->all());
+
+        // Method first() dan last()
+        echo "Nilai pertama adalah ".$operasi->first();
+        echo "<br>";
+        echo "Nilai terakhir adalah ".$operasi->last();
+        echo "<br>";
     }
 
     public function collectionEmpat()
