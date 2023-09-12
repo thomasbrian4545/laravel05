@@ -25,8 +25,18 @@ class CollectionController extends Controller
             echo "$value ";
         }
         echo "<br>";
+
         // Collection dari berbagai tipe data
         $collection = collect(["Mawar", "Anggrek", "Dahlia", 5, 7, 9]);
+        echo $collection;
+        echo "<br>";
+
+        // Collection dari associative array
+        $collection = collect([
+            "nama" => "Brian",
+            "sekolah" => "SMAK St. Thomas Aquino",
+            "umur" => 31
+        ]);
         echo $collection;
         echo "<br>";
     }
