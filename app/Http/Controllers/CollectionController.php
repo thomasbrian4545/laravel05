@@ -117,6 +117,14 @@ class CollectionController extends Controller
 
     public function collectionEmpat()
     {
+        $collection = collect([
+            "nama" => "Thomas",
+            "kota" => "Sidoarjo",
+            "umur" => 31
+        ]);
+
+        // Ambil nilai berdasarkan key
+        echo $collection->get("umur");
     }
 
     public function collectionLima()
