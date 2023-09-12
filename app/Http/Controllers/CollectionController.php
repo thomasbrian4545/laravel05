@@ -162,6 +162,10 @@ class CollectionController extends Controller
         echo $hasil;
         echo "<br>";
 
+        // Mencari nilai, mengembalikan key
+        echo $collection->search("Thomas");
+        echo "<br>";
+
     }
 
     public function collectionLima()
