@@ -85,7 +85,7 @@ class CollectionController extends Controller
         echo "<br>";
 
         // Method concat()
-        echo "Method concat()"."<br>";
+        echo "Method concat()" . "<br>";
         echo $operasi->concat([34, 8]);
         echo "<br>";
 
@@ -103,15 +103,15 @@ class CollectionController extends Controller
         dump($operasi->all());
 
         // Method first() dan last()
-        echo "Nilai pertama adalah ".$operasi->first();
+        echo "Nilai pertama adalah " . $operasi->first();
         echo "<br>";
-        echo "Nilai terakhir adalah ".$operasi->last();
+        echo "Nilai terakhir adalah " . $operasi->last();
         echo "<br>";
 
         // Method count() dan sort()
-        echo "Jumlah data adalah ".$operasi->count();
+        echo "Jumlah data adalah " . $operasi->count();
         echo "<br>";
-        echo "Diurutkan menjadi ".$operasi->sort();
+        echo "Diurutkan menjadi " . $operasi->sort();
         echo "<br>";
     }
 
@@ -166,6 +166,16 @@ class CollectionController extends Controller
         echo $collection->search("Thomas");
         echo "<br>";
 
+        // Foreach pada collection
+        foreach ($collection as $key => $value) {
+            echo "$key: $value <br>";
+        }
+        echo "<br>";
+
+        // Cara penulisan selain foreach
+        $collection->each(function ($val, $key) {
+            echo "$key: $val <br>";
+        });
     }
 
     public function collectionLima()
