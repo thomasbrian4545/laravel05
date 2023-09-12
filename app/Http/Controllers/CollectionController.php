@@ -45,6 +45,24 @@ class CollectionController extends Controller
         $varB = ["0" => 1, "1" => 2, "2" => 3];
         dump($varA === $varB);
         echo "<br>";
+
+        // Perbandingan collection array dan associative array
+        $varC = collect([1, 2, 3]);
+        $varD = collect([0 => 1, 1 => 2, 2 => 3]);
+        echo $varC;
+        echo "<br>";
+        echo $varD;
+        echo "<br>";
+        dump($varC === $varD);
+        echo "<br>";
+
+        // Perbandingan collection array tidak berurutan
+        $varE = collect([1, 2, 3]);
+        $varF = collect([3 => 1, 4 => 2, 5 => 3]);
+        echo $varE;
+        echo "<br>";
+        echo $varF;
+        echo "<br>";
     }
 
     public function collectionTiga()
