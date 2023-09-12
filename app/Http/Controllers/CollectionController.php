@@ -39,6 +39,12 @@ class CollectionController extends Controller
         ]);
         echo $collection;
         echo "<br>";
+
+        // Dump antar array dan associative array
+        $varA = [1, 2, 3];
+        $varB = ["0" => 1, "1" => 2, "2" => 3];
+        dump($varA === $varB);
+        echo "<br>";
     }
 
     public function collectionTiga()
