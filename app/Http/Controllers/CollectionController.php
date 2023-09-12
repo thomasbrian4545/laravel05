@@ -140,6 +140,11 @@ class CollectionController extends Controller
             "kota" => "Surabaya"
         ]);
         echo $hasil;
+        echo "<br>";
+
+        // Menghapus salah satu element di collection
+        $hasil = $collection->forget("kota");
+        echo $hasil;
     }
 
     public function collectionLima()
