@@ -83,6 +83,11 @@ class CollectionController extends Controller
         // Method random()
         echo $operasi->random();
         echo "<br>";
+
+        // Method concat()
+        echo "Method concat()"."<br>";
+        echo $operasi->concat([34, 8]);
+        echo "<br>";
     }
 
     public function collectionEmpat()
