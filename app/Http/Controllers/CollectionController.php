@@ -79,6 +79,10 @@ class CollectionController extends Controller
         echo "<br>";
         echo $operasi->median();
         echo "<br>";
+
+        // Method random()
+        echo $operasi->random();
+        echo "<br>";
     }
 
     public function collectionEmpat()
