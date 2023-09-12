@@ -145,6 +145,12 @@ class CollectionController extends Controller
         // Menghapus salah satu element di collection
         $hasil = $collection->forget("kota");
         echo $hasil;
+        echo "<br>";
+
+        // Membalik key dengan value dan sebaliknya
+        $hasil = $collection->flip();
+        echo $hasil;
+        echo "<br>";
     }
 
     public function collectionLima()
