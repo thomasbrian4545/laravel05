@@ -90,7 +90,8 @@ class CollectionController extends Controller
         echo "<br>";
 
         // Method contains()
-        dump($operasi->contains(77));
+        $baru = $operasi->concat([34, 8]);
+        dump($baru->contains(34));
     }
 
     public function collectionEmpat()
