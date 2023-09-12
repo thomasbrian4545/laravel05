@@ -134,6 +134,12 @@ class CollectionController extends Controller
         // Memeriksa ada key atau tidak
         dump($collection->has("pekerjaan"));
         echo "<br>";
+
+        // Ganti isi collection
+        $hasil = $collection->replace([
+            "kota" => "Surabaya"
+        ]);
+        echo $hasil;
     }
 
     public function collectionLima()
