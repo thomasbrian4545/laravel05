@@ -130,6 +130,10 @@ class CollectionController extends Controller
         // Nilai default jika key tidak ditemukan
         echo $collection->get("ijazah", "Magister Komputer");
         echo "<br>";
+
+        // Memeriksa ada key atau tidak
+        dump($collection->has("pekerjaan"));
+        echo "<br>";
     }
 
     public function collectionLima()
