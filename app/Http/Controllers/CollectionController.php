@@ -125,6 +125,11 @@ class CollectionController extends Controller
 
         // Ambil nilai berdasarkan key
         echo $collection->get("umur");
+        echo "<br>";
+
+        // Nilai default jika key tidak ditemukan
+        echo $collection->get("ijazah", "Magister Komputer");
+        echo "<br>";
     }
 
     public function collectionLima()
