@@ -12,6 +12,7 @@ class CollectionController extends Controller
         echo "<pre>";
         var_dump($collection);
         echo "</pre>";
+        dump($collection);
         echo $collection;
     }
 
