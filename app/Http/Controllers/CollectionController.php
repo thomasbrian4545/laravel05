@@ -18,6 +18,11 @@ class CollectionController extends Controller
 
     public function collectionDua()
     {
+        $collection = collect([1, 9, 3, 4, 5, 3, 5, 7]);
+        echo $collection[2]; echo "<br>";
+        foreach ($collection as $value) {
+            echo "$value ";
+        }
     }
 
     public function collectionTiga()
