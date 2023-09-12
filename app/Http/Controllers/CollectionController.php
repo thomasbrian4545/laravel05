@@ -67,6 +67,18 @@ class CollectionController extends Controller
 
     public function collectionTiga()
     {
+        // Operasi matematis
+        $operasi = collect([3, 9, 2, 22, 9, 0]);
+        echo $operasi->sum();
+        echo "<br>";
+        echo $operasi->avg();
+        echo "<br>";
+        echo $operasi->max();
+        echo "<br>";
+        echo $operasi->min();
+        echo "<br>";
+        echo $operasi->median();
+        echo "<br>";
     }
 
     public function collectionEmpat()
