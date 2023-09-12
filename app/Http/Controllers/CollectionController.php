@@ -151,6 +151,17 @@ class CollectionController extends Controller
         $hasil = $collection->flip();
         echo $hasil;
         echo "<br>";
+
+        // Ambil semua key
+        $hasil = $collection->keys();
+        echo $hasil;
+        echo "<br>";
+
+        // Ambil semua value
+        $hasil = $collection->values();
+        echo $hasil;
+        echo "<br>";
+
     }
 
     public function collectionLima()
