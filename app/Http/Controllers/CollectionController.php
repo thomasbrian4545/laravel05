@@ -107,6 +107,12 @@ class CollectionController extends Controller
         echo "<br>";
         echo "Nilai terakhir adalah ".$operasi->last();
         echo "<br>";
+
+        // Method count() dan sort()
+        echo "Jumlah data adalah ".$operasi->count();
+        echo "<br>";
+        echo "Diurutkan menjadi ".$operasi->sort();
+        echo "<br>";
     }
 
     public function collectionEmpat()
