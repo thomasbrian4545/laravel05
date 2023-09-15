@@ -254,5 +254,65 @@ class CollectionController extends Controller
 
     public function collectionEnam()
     {
+        $siswa00 = new \stdClass();
+        $siswa00->nama = "Rian";
+        $siswa00->sekolah = "SMK Pelita Ibu";
+        $siswa00->jurusan = "IPA";
+
+        $siswa01 = new \stdClass();
+        $siswa01->nama = "Nova";
+        $siswa01->sekolah = "SMA 2 Kota Baru";
+        $siswa01->jurusan = "IPA";
+
+        $siswa02 = new \stdClass();
+        $siswa02->nama = "Rudi";
+        $siswa02->sekolah = "MA Al Hidayah";
+        $siswa02->jurusan = "IPS";
+
+        $siswas = collect([
+            0 => $siswa00,
+            1 => $siswa01,
+            2 => $siswa02,
+        ]);
+
+        dump($siswas);
+
+        // Cara mengakses nilai collection
+        echo $siswas[1]->nama;
+        echo "<br>";
+        echo $siswas[2]->sekolah;
+
+        echo "<hr>";
+
+        // Perulangan foreach untuk menampilkan data
+        foreach ($siswas as $siswa) {
+            echo $siswa->nama . "<br>";
+        }
+
+        echo "<hr>";
+
+        // Tampilkan nama sekolah dari siswa bernama Rudi
+        $siswa = $siswas->where('nama', 'Rudi')->first();
+        echo $siswa->sekolah;
+
+        echo "<hr>";
+
+        // Method get()
+        $siswa = $siswas->get(2);
+        echo "$siswa->nama, $siswa->sekolah, $siswa->jurusan";
+
+        echo "<hr>";
+
+        // Method groupBy()
+        $hasil = $siswas->groupBy('jurusan');
+        dump($hasil);
+
+        echo "<hr>";
+
+        // Tampilkan nama yang mengambil jurusan IPA
+        $hasil = $siswas->groupBy('jurusan')->get('IPA')->pluck('nama')->all();
+        dump($hasil);
+        // echo $hasil[0];
+        echo implode(', ', $hasil);
     }
 }
