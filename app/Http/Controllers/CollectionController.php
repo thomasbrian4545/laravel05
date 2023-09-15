@@ -180,6 +180,76 @@ class CollectionController extends Controller
 
     public function collectionLima()
     {
+        $collection = collect([
+            ['namaProduk' => 'Laptop A', 'harga' => 59990000],
+            ['namaProduk' => 'Smartphone B', 'harga' => 1599000],
+            ['namaProduk' => 'Speaker C', 'harga' => 350000],
+        ]);
+
+        dump($collection);
+
+        // Urut berdasarkan key harga
+        dump($collection->sortBy('harga'));
+
+        // Urut berdasarkan key harga
+        dump($collection->sortByDesc('harga'));
+
+        // Urutkan berdasarkan key harga dan tampilkan sebagai array
+        dump($collection->sortBy('harga')->all());
+
+        // Urutkan berdasarkan key harga dan tampilkan menggunakan method each()
+        $collection->sortBy('harga')->each(function ($val, $key) {
+            echo $val['namaProduk'] . '<br>';
+        });
+
+        // Method filter untuk harga < 2000000
+        $hasil = $collection->filter(function ($val, $key) {
+            return $val['harga'] < 2000000;
+        });
+        dump($hasil);
+
+        // Cari element key dengan harga bernilai 350000
+        dump($collection->where('harga', 350000));
+
+        // Cari element key dengan harga >= 1000000
+        dump($collection->where('harga', '>=', 1000000));
+
+        // Hasil pencarian berisi 1 element
+        // $hasil = $collection->where('harga', 350000)->first();
+        $hasil = $collection->firstWhere('harga', 350000);
+        echo $hasil['namaProduk'] . "<br>";
+        echo "<hr>";
+
+        // Hasil gabungan method where dan all untuk hasil lebih dari 1 element
+        // dan menjadi array untuk di looping dengan foreach
+        $hasil = $collection->where('harga', '>=', 1000000)->all();
+        foreach ($hasil as $val) {
+            echo $val['namaProduk'] . "<br>";
+        }
+        echo "<hr>";
+
+        // Cari element dengan harga diantara 100_000 - 2_000_000
+        $hasil = $collection->whereBetween('harga', [100_000, 2_000_000])->all();
+        foreach ($hasil as $value) {
+            echo $value['namaProduk'] . "<br>";
+        }
+        echo "<hr>";
+
+        // Cari element dengan harga tidak diantara 100_000 - 2_000_000
+        $hasil = $collection->whereNotBetween('harga', [100_000, 2_000_000])->all();
+        foreach ($hasil as $value) {
+            echo $value['namaProduk'] . "<br>";
+        }
+        echo "<hr>";
+
+        // Cari element dengan harga 1_599_000, 2_999_000 atau 3_999_000
+        dump($collection->whereIn('harga', [1_599_000, 2_999_000, 3_999_000]));
+
+        // Cari element dengan harga selain 1_599_000, 2_999_000 atau 3_999_000
+        dump($collection->whereNotIn('harga', [1_599_000, 2_999_000, 3_999_000]));
+
+        // Ambil namaProduk dari semua element
+        dump($collection->pluck('namaProduk'));
     }
 
     public function collectionEnam()
