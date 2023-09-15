@@ -315,4 +315,50 @@ class CollectionController extends Controller
         // echo $hasil[0];
         echo implode(', ', $hasil);
     }
+
+    public function exercise()
+    {
+        $matkul00 = new \stdClass();
+        $matkul00->namaMatkul = "Sistem Operasi";
+        $matkul00->jumlahSks = 3;
+        $matkul00->semester = 3;
+
+        $matkul01 = new \stdClass();
+        $matkul01->namaMatkul = "Algoritma dan Pemrograman";
+        $matkul01->jumlahSks = 4;
+        $matkul01->semester = 1;
+
+        $matkul02 = new \stdClass();
+        $matkul02->namaMatkul = "Kalkulus Dasar";
+        $matkul02->jumlahSks = 2;
+        $matkul02->semester = 1;
+
+        $matkul03 = new \stdClass();
+        $matkul03->namaMatkul = "Basis Data";
+        $matkul03->jumlahSks = 2;
+        $matkul03->semester = 3;
+
+        $matkuls = collect([$matkul00, $matkul01, $matkul02, $matkul03]);
+
+        $hasil = $matkuls->groupBy('semester')->get(3)->pluck('namaMatkul')->all();
+        echo "Nama mata kuliah di semester 3: " . implode(', ', $hasil);
+        echo "<br>";
+
+        $matkulsSem3 = $matkuls->where('semester', 3);
+        $stringMatkul = "";
+        foreach ($matkulsSem3 as $matkul) {
+            $stringMatkul .= $matkul->namaMatkul . ", ";
+        }
+
+        echo $stringMatkul . "<br>";
+        echo 'Nama mata kuliah di semester 3: ' . substr($stringMatkul, 0, -2);
+        echo "<hr>";
+
+        $matkulsSort = $matkuls->sortByDesc('jumlahSks');
+        $stringMatkul = "";
+        foreach ($matkulsSort as $matkul) {
+            $stringMatkul .= "$matkul->namaMatkul ($matkul->jumlahSks), ";
+        }
+        echo 'Nama mata kuliah: ' . substr($stringMatkul, 0, -2);
+    }
 }
